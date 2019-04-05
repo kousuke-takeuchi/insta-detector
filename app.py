@@ -17,11 +17,11 @@ from ssd.ssd_utils import BBoxUtility
 
 
 def _profile_images(username, destination='.instagram'):
-    # if not InstaLooter._logged_in():
-    #     InstaLooter._login(username, password)
-    #
-    # looter = ProfileLooter(username)
-    # n = looter.download(destination=destination, new_only=True)
+    if not InstaLooter._logged_in():
+        InstaLooter._login(username, password)
+
+    looter = ProfileLooter(username)
+    n = looter.download(destination=destination, new_only=True)
 
     path = pathlib.Path(destination)
     return list(path.glob('*'))
